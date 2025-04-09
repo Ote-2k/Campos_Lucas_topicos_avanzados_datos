@@ -1,0 +1,1 @@
+no se que cambie, pero ahora no puedo conectar mi carpeta del computador con la de este repositorio, literalmente no em deja hacer nada que no sea manual, cualquier cambio que intento aplicar con codigo se ejecuta pero no se refleja en el repositorio
