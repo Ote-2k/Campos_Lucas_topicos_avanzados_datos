@@ -1,0 +1,59 @@
+1. Parte Teórica: 4 preguntas (40 puntos).
+2. Parte Práctica: 3 ejercicios (60 puntos).
+3. Puntaje total: 100 puntos.
+4. Porcentaje de aprobación: 60% (60 puntos).
+5. Ejecutar script de archivo prueba_1.sql
+6. Recuerda tener habilitado SET SERVEROUTPUT ON en
+SQL Developer para ver los resultados de
+DBMS_OUTPUT.PUT_LINE.
+
+1. Trabaja individualmente en Oracle SQL Developer,
+usando las tablas creadas en tu esquema local.
+2. Escribe las respuestas teóricas y prácticas en un
+archivo prueba1.sql.
+3. Usa comentarios para separar las respuestas (--
+Pregunta 1, -- Ejercicio 1, etc.).
+4. Sube el archivo a tu repositorio individual
+
+Ítem 1:
+
+1. Explica qué es una relación muchos a muchos y cómo se implementa en una base de datos relacional. Usa un ejemplo basado en las tablas del esquema creado para la prueba.
+
+Una relación de muchos a muchos en una tabla es cuando 2 tablas interactúan entre si y en ambos extremos las tablas interactúan mas de 1 vez con un dato o la tabla en general, un ejemplo de esto lo vemos en las tablas de la prueba, en la relación entre proyectos y empleados, ya que un empleado puede tener de uno a múltiples proyectos, y un proyecto puede recibir de uno a múltiples empleados
+
+
+
+2. Describe que es una vista y cómo la usarías para mostrar el total de horas asignadas por proyecto, incluyendo el nombre del proyecto. Escribe la consulta SQL para crear la vista (no es necesario ejecutarla).
+
+Una vista es una forma de "ver" los datos de una tabla de manera filtrada, nos sirve mas que simplemente llamar los datos en una consulta ya que estas se suelen usar para consultas recurrentes, por ende nos ahorran tiempo además de tener otras funciones extras.
+
+CREATE VIEW total_horas AS
+	Proyectos.Nombre, Asignaciones.Horas
+FROM Asignaciones
+JOIN Proyectos ON
+Proyectos.proyectoid = Asignaciones.proyectoid
+Order by Proyectos.Nombre;
+
+
+
+3. ¿Qué es una excepción predefinida en PL/SQL y cómo se maneja? Da un ejemplo de cómo manejarías la excepción NO_DATA_FOUND en un bloque PL/SQL.
+
+una excepción predefinida es un comando ya creado desde el mismo PL/SQL u Oracle (ahí yo desconosco si es que ambos son lo mismo o son partes distintas) el cual existe para prevenir, anticipar o manejar un error o "excepción" que ocurra en el código, estos se usan por fuera del esquema del código, en un apartado por debajo del BEGIN llamado EXCEPTION, donde se especifican las funciones de las excepciones que usemos, en este caso NO_DATA_FOUND sirve cuando alguna variable que hallamos declarado con anterioridad no se encuentre o no tenga datos, ahí la excepción NO_DATA_FOUND (si configurada bien) entrara en accion y ejecutara lo que le hallamos configurado (usualmente un mensaje de error)
+
+
+
+4. Explica qué es un cursor explícito y cómo se usa en PL/SQL. Menciona al menos dos atributos de cursor (como %NOTFOUND) y su propósito.
+
+un cursor explicito es similar a un objeto en java, es una "funcion" la cual debemos definir antes del BEGIN, aclarando que variables usara, si es que se conecta con distintas tablas o si es que debe de guardar o mandar valores a ciertos lugares, etc. los únicos 2 atributos que recuerdo (correctamente) hasta ahora %NOTFOUND, que es TRUE cuando no se encontró más información al hacer FETCH, y %ROWCOUNT, que indica cuántas filas se han recuperado hasta el momento.
+
+
+
+--ESTA PARTE ESTA EN EL OTRO ARCHIVO--
+
+Item 2:
+
+1. Escribe un bloque PL/SQL con un cursor explícito que liste los departamentos con un salario promedio mayor a 600000, mostrando el nombre del departamento y el promedio de salario de sus empleados. Usa un JOIN entre Departamentos y Empleados.
+
+2. Escribe un bloque PL/SQL con un cursor explícito que reduzca un 5% el presupuesto de los proyectos que tienen un presupuesto mayor a 1500000. Usa FOR UPDATE y maneja excepciones.
+
+3. Crea un tipo de objeto empleado_obj con atributos empleado_id, nombre, y un método get_info. Luego, crea una tabla basada en ese tipo y transfiere los datos de Empleados a esa tabla. Finalmente, escribe un cursor explícito que liste la información de los empleados usando el método get_info.
