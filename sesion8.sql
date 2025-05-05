@@ -89,6 +89,10 @@ END;
 /
 
 
+docker cp "C:\Users\lucas.campos\Pictures\topicos\Campos_Lucas_topicos_avanzados_datos\archivo.sql" oracle_db_course:/home/oracle/
+@/home/oracle/archivo.sql
+
+
 
 
 
