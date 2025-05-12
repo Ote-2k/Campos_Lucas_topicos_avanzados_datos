@@ -1,0 +1,16 @@
+/*
+1. Escribe un bloque PL/SQL con un cursor explícito que liste los departamentos con un salario promedio mayor a 600000, mostrando el nombre del departamento y el promedio de salario de sus empleados. Usa un JOIN entre Departamentos y Empleados.
+*/
+
+
+
+/*
+2. Escribe un bloque PL/SQL con un cursor explícito que reduzca un 5% el presupuesto de los proyectos que tienen un presupuesto mayor a 1500000. Usa FOR UPDATE y maneja excepciones.
+*/
+
+
+
+/*
+3. Crea un tipo de objeto empleado_obj con atributos empleado_id, nombre, y un método get_info. Luego, crea una tabla basada en ese tipo y transfiere los datos de Empleados a esa tabla. Finalmente, escribe un cursor explícito que liste la información de los empleados usando el método get_info.
+*/
+
